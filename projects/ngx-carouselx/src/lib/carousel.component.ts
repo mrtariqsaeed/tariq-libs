@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 const FIRST_SLIDE_KEY = makeStateKey<any>('firstSlide');
 
 @Component({
-  selector: 'carousel',
+  selector: 'ngx-carouselx',
   standalone: true,
   imports: [NgStyle],
   templateUrl: './carousel.component.html',
