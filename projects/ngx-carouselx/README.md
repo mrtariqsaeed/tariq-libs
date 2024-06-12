@@ -16,22 +16,18 @@ Easy, just npm install:
 npm i ngx-carouselx
 ```
 
-Next, import the module:
+Next, import the standalone carousel component:
 
 ```
-import {CarouselModule} from 'ngx-carouselx';
+import { CarouselComponent } from 'ngx-carouselx';
 
-@NgModule({
+@Component({
+  ...
   imports: [
-    CarouselModule,
+    CarouselComponent,
     ...
   ],
-  declarations: [
-    ...
-  ],
-  exports: [
-    ...
-  ]
+  ...
 })
 ...
 ```
@@ -41,20 +37,20 @@ import {CarouselModule} from 'ngx-carouselx';
 The simplest use case is the following:
 
 ```html
-<ngx-carouselx [imageUrls]="imageUrlArray"></ngx-carouselx>
+<carouselx [imageUrls]="imageUrlArray"></carouselx>
 ```
 
 A more complex example below (full list of options in next section):
 
 ```html
-<ngx-carouselx [height]="height"
+<carouselx [height]="height"
            [minHeight]="'525px'"
            [autoPlay]="true"
            [showArrows]="false"
            [imageUrls]="imageSources"
            [lazyLoad]="imageSources?.length > 1"
            [autoPlayWaitForLazyLoad]="true">
-</ngx-carouselx>
+</carouselx>
 ```
 
 
@@ -64,7 +60,7 @@ A more complex example below (full list of options in next section):
 
 | Option                  | Required | Default              | Type                                                                                                                      | Description                                                                                                                        |
 | ----------------------- | -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| imageUrls               | yes      | []                   | string[] or [IImage[]](https://github.com/mrtariqsaeed/ngx-carouselx/blob/master/src/app/ngx-carouselx/IImage.ts) | array of image urls or [IImage](https://github.com/mrtariqsaeed/ngx-carouselx/blob/master/src/app/ngx-carouselx/IImage.ts) |
+| imageUrls               | yes      | []                   | string[] or [IImage[]](https://github.com/mrtariqsaeed/tariq-libs/tree/main/projects/ngx-carouselx/src/lib/IImage.ts) | array of image urls or [IImage](https://github.com/mrtariqsaeed/tariq-libs/tree/main/projects/ngx-carouselx/src/lib/IImage.ts) |
 | height                  | no       | '100%'               | string                                                                                                                    | CSS height of carousel                                                                                                            |
 | minHeight               | no       |                      | string                                                                                                                    | CSS min-height of carousel                                                                                                        |
 | arrowSize               | no       | '30px'               | string                                                                                                                    | length of arrow lines                                                                                                              |
@@ -109,7 +105,7 @@ Note: all events emit the index number of the new slide, with the exception of o
 Take control of the ngx-carouselx if you want! Simply create a reference to your carousel like so:
 
 ```html
-<ngx-carouselx #carousel [imageUrls]="imageUrlArray"></ngx-carouselx>
+<carouselx #carousel [imageUrls]="imageUrlArray"></carouselx>
 ```
 
 and in your component.ts reference it as a ViewChild:

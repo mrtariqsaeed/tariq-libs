@@ -1,7 +1,23 @@
 {
   "name": "ngx-carouselx",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
+  "author": {
+    "name": "Tariq Saeed",
+    "email": "eng.tariqsaeed@gmail.com",
+    "url": "https://www.linkedin.com/in/tariq-s/"
+  },
+  "homepage": "https://github.com/mrtariqsaeed/tariq-libs/tree/main/projects/ngx-carouselx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrtariqsaeed/tariq-libs/tree/main/projects/ngx-carouselx.git"
+  },
+  "keywords": [
+    "angular",
+    "carousel",
+    "ngx-carouselx",
+    "ngx-carousel"
+  ],
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0"
