@@ -1,0 +1,75 @@
+<!-- fullscreen bar -->
+<div
+  [class.display-none]="!fullscreen"
+  class="fs-container"
+  (click)="exitFullScreen($event)"
+>
+  <i title="Back" class="arrow-exitfs prev"></i>
+</div>
+<div
+  #container
+  class="carousel-container"
+  [class.carousel-container-fs]="fullscreen"
+>
+  <!-- slides -->
+  @for (slide of slides; track trackByFn(i, slide); let i = $index) {
+     <a
+     class="slides"
+     href="#!"
+     tabindex="-1"
+     [title]="slide?.image?.title"
+     [ngStyle]="getSlideStyle(i)"
+     (click)="handleClick($event)"
+     [class.selected]="slide?.selected"
+     [class.hide-slide]="
+          !slide?.selected && !slide?.leftSide && !slide?.rightSide
+     "
+     [class.left-side]="slide?.leftSide"
+     [class.right-side]="slide?.rightSide"
+     [class.slide-in-left]="slide?.action === 'slideInLeft'"
+     [class.slide-in-right]="slide?.action === 'slideInRight'"
+     [class.slide-out-left]="slide?.action === 'slideOutLeft'"
+     [class.slide-out-right]="slide?.action === 'slideOutRight'"
+     [class.link]="slide?.image?.clickAction || slide?.image?.href"
+     >
+     @if (!slide?.loaded) {
+          <div class="loader"></div>
+     } 
+     @if (showCaptions && slide?.image?.caption) {
+          <div
+               class="caption"
+               [ngStyle]="{ 'color': captionColor, 'background-color': captionBackground }"
+               [innerHTML]="slide?.image?.caption"
+          ></div>
+     }
+     </a>
+  }
+  <!-- left arrow -->
+  <div
+    [class.display-none]="!showArrows || hideLeftArrow"
+    (click)="onSlide(-1)"
+    class="arrow-container prev"
+  >
+    <i #prevArrow title="Previous" class="arrow prev"></i>
+  </div>
+  <!-- right arrow -->
+  <div
+    [class.display-none]="!showArrows || hideRightArrow"
+    (click)="onSlide(1)"
+    class="arrow-container next"
+  >
+    <i #nextArrow title="Next" class="arrow next"></i>
+  </div>
+  <!-- dots -->
+  @if (showDots) {
+  <ul class="slick-dots">
+    @for (slide of slides; track trackByFn(i, slide); let i = $index) {
+    <li (click)="goToSlide(i)" [class.slick-active]="slide.selected">
+      <button type="button" [attr.style]="safeStyleDotColor">
+        {{ i }}
+      </button>
+    </li>
+    }
+  </ul>
+  }
+</div>
