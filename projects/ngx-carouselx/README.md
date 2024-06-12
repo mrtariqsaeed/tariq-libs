@@ -1,8 +1,8 @@
-## NG CAROUSEL
+## NGX CAROUSELX
 a simple carousel that supports latest angular versions and easy to use.
 
 ## Features
-* NgCarousel has no dependencies besides angular. All animations are 100% CSS, so @angular/animations is not needed.
+* NgxCarouselx has no dependencies besides angular. All animations are 100% CSS, so @angular/animations is not needed.
 * Responsive and captures swipes from phones and tablets
 * Lazy load option to help with initial pageload speed
 
